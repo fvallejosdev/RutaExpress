@@ -1,0 +1,6 @@
+@RutaExpress.Server_HostAddress = http://localhost:5070
+
+GET {{RutaExpress.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
