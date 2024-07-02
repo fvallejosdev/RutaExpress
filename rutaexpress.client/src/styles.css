@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+/* :root {
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;
+} */
+
+* {
+  scrollbar-width: thin;
+  /* scrollbar-color: rgba(0, 0, 0, 0.2) transparent; */
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+

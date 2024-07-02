@@ -8,9 +8,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\rutaexpress.client\browser\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\core\" />
+    <Folder Include="src\app\core\services\" />
     <Folder Include="src\app\features\" />
-    <Folder Include="src\app\shared\components\" />
-    <Folder Include="src\app\shared\" />
   </ItemGroup>
 </Project>

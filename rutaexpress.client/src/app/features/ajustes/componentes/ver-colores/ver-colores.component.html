@@ -1,0 +1,150 @@
+@if(showToast()){
+  <app-toast posicion="fixed top-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"  viewBox="0 -960 960 960" fill="currentColor"><path d="M200-200h560v-367L567-760H200v560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h400l240 240v400q0 33-23.5 56.5T760-120H200Zm80-160h400v-80H280v80Zm0-160h400v-80H280v80Zm0-160h280v-80H280v80Zm-80 400v-560 560Z"/>
+    </svg>
+    <div class="ms-3 text-md font-normal"><b>{{this.colorCopy}}</b> copiado al portapaples.</div>
+</app-toast>
+}
+
+@if(colores.length !== 0){
+  <div class="flex p-2">
+    <h3 class="text-xl text-color dark:text-white font-semibold">{{titulo}}</h3>
+  </div>
+}
+<!-- flex-col md:flex-row -->
+<div class="flex overflow-x-auto  snap-x snap-mandatory space-x-2 relative md:space-x-2  md:space-y-0">
+  @for(color of colores; track $index){
+  <div class="">
+    <div class="w-full md:w-20  md:h-24 h-24 w-16 flex justify-center items-center rounded-md shadow-xl relative"
+      [style.background]="color.value">
+      @if($index < 5 ){
+        <!-- <div [ngClass]="(colorSelect === color.value)?'':'hidden'" class=" md:hidden absolute right-16  ">
+          <span class="">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+               [attr.fill]="(colores[5].value == '#ffffff' )?colores[10].value:colores[10].value">
+              <path
+                d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+            </svg>
+          </span>
+        </div> -->
+        <div class=" text-center cursor-pointer " (click)="copiarAlPortapapeles(color.value)">
+          <div class="flex justify-center absolute top-2 left-0 right-0" [ngClass]="(colorSelect === color.value)?'':'hidden'">
+            <span class="">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                [attr.fill]="colores[10].value">
+                <path
+                  d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+              </svg>
+            </span>
+          </div>
+          <div class="">
+            <span class="text-sm text-primary-950 dark:text-white" [style.color]="colores[10].value"> <b>{{color.key}}</b> </span>
+          </div>
+          <div class="text-primary-950 text-xs dark:text-white" [style.color]="colores[10].value">
+            {{color.value}}
+          </div>
+        </div>
+      }
+      @if($index == 5){
+        <!-- <div class="flex justify-center mr-3 absolute right-16 " [ngClass]="(colorSelect === color.value)?'md:hidden':''">
+          <span class="">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+               [attr.fill]="(colores[5].value == '#ffffff' )?colores[10].value:colores[1].value">
+              <path
+                d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+            </svg>
+          </span>
+        </div> -->
+        <div class="text-center cursor-pointer  " (click)="copiarAlPortapapeles(color.value)">
+          
+          <div class="flex justify-center absolute top-2 left-0 right-0" [ngClass]="(colorSelect === color.value)?'':'hidden'">
+            <span class="">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                 [attr.fill]="(colores[5].value == '#ffffff' )?colores[10].value:colores[1].value">
+                <path
+                  d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+              </svg>
+            </span>
+          </div>
+          <div>
+            <span class="text-sm text-primary-950 dark:text-white" [style.color]="(colores[5].value == '#ffffff' )?colores[10].value:colores[1].value"> <b>{{color.key}}</b> </span>
+          </div>
+          <div class="text-primary-950 text-xs dark:text-white" [style.color]="(colores[5].value == '#ffffff' )?colores[10].value:colores[1].value">
+            {{color.value}}
+          </div>
+        </div>
+      }
+      @if($index > 5) {
+        <!-- <div class="flex mr-3 justify-center md:hidden absolute right-16 " [ngClass]="(colorSelect === color.value)?'':'hidden'">
+          <span class="">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+               [attr.fill]="(colores[5].value == '#ffffff' )?colores[10].value:colores[0].value">
+              <path
+                d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+            </svg>
+          </span>
+        </div> -->
+        <div class="cursor-pointer text-center" (click)="copiarAlPortapapeles(color.value)">
+          <div class="flex justify-center absolute top-2 left-0 right-0" [ngClass]="(colorSelect === color.value)?'':'hidden'">
+            <span class="">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+                [attr.fill]="colores[0].value">
+                <path
+                  d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+              </svg>
+            </span>
+          </div>
+          <div>
+            <span class="text-sm text-primary-950 dark:text-white" [style.color]="colores[0].value"> <b>{{color.key}}</b> </span>
+          </div>
+          <div class="text-primary-950 text-xs dark:text-white" [style.color]="colores[0].value">
+            {{color.value}}
+          </div>
+        </div>
+      }
+     
+    
+      <!-- @if(5 === $index){
+      <div class="flex justify-center gap-2 ml-10 md:ml-0">
+        <span class="self-center">
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
+            [attr.fill]="colores[0].value">
+            <path
+              d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z" />
+          </svg>
+        </span>
+        <div class="md:hidden text-center">
+          <div class=" dark:text-white" [style.color]="colores[0].value">
+            {{color.value}}
+          </div>
+          <div>
+            <span class="dark:text-white" [style.color]="colores[0].value"> <b>{{color.key}}</b> </span>
+          </div>
+        </div>
+      </div>
+
+      } -->
+      <!-- <div class="md:hidden text-center">
+        <div class="text-primary-950 dark:text-white" [style.color]="colores[10-$index].value">
+          {{color.value}}
+        </div>
+        <div>
+          <span class=" dark:text-white" [style.color]="colores[10-$index].value"> <b>{{color.key}}</b>
+          </span>
+        </div>
+      </div> -->
+    </div>
+    <!-- <div class="hidden md:block mt-2 text-center">
+      <div class="text-primary-950 dark:text-white">
+        {{color.value}}
+      </div>
+      <div>
+        <span class=" text-primary-950 dark:text-white"> <b>{{color.key}}</b> </span>
+      </div>
+    </div> -->
+
+  </div>
+  }
+
+</div>
+

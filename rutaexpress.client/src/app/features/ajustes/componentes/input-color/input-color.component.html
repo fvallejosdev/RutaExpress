@@ -1,0 +1,29 @@
+<div class="">
+    <!-- <div class="text-lg font-medium  dark:text-white text-color self-center text-center md:text-left">{{titulo}}
+    </div> -->
+    <div class="">
+        <div class="text-lg font-medium dark:text-white text-color self-center text-center md:text-left">{{titulo}}
+        </div>
+      <div
+        class="relative h-14 md:inset-0 form-control border dark:border-gray-600 border-gray-300  rounded-full overflow-hidden max-w-md  "
+        style="box-shadow:rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 5%) 0px 4px 12px;">
+        <input type="text" [value]="color" (change)="onColorChangePrimary($event)"
+          placeholder="Hexcode" class="px-6 pl-14 w-full font-medium h-full border-0  rounded-full dark:text-gray-300 bg-transparent">
+        <input type="color" [value]="color" (change)="onColorChangePrimary($event)"
+          class="absolute  top-1/2 transform -translate-y-1/2 w-8 h-7    left-4 cursor-pointer"
+          style="--webkit-appearance:none; border-style: none;">
+
+<!-- 
+          <button style="display:none;"
+          class="focus:outline-none absolute top-1/2 transform -translate-y-1/2 px-3 py-1.5 right-20 cursor-pointer text-sm hidden md:flex items-center gap-1 font-medium"><svg
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="opacity-30 hover:opacity-100 w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z">
+            </path>
+          </svg>
+        </button>  -->
+
+      </div>
+    </div>
+  </div>

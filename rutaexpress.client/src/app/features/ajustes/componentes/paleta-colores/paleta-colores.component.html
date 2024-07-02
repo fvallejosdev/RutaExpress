@@ -1,0 +1,122 @@
+<!-- Las variantes oscuras y claras de cada color se pueden aplicar a la interfaz de usuario de diferentes maneras. -->
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center ">
+    <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary-900 md:text-5xl lg:text-5xl dark:text-primary-50">Personaliza la paleta de colores</h2>
+      <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">En este apartado, seleccionas un color primario, color secundario y un color de fondo para representar tu marca.</p>
+     
+  </div>
+  <div class="flex flex-col md:flex-row md:gap-4 space-y-4 md:space-y-0 justify-center">
+    <app-input-color [color]="colorPalette.primary" (colorSelect)="onColorChangePrimaryEmit($event)" titulo="Elija color primario"></app-input-color>
+    <app-input-color [color]="colorPalette.secundary" (colorSelect)="onColorChangeSecondaryEmit($event)" titulo="Elija color secondario"></app-input-color>
+    <app-input-color [color]="colorPalette.fondo" (colorSelect)="onColorChangeAccentEmit($event)" titulo="Elija color de fondo"></app-input-color>
+  </div>
+  <div class="mt-10 ">
+    <h5 class="text-xl text-center text-primary-900 font-bold dark:text-white">Cambiar color a la interfaz de usuario</h5>
+  </div>
+  <div class="flex flex-col md:flex-row gap-4 justify-center mt-3">
+    <div class="md:w-64">
+      <app-select [elementos]="componentes" (valueSelect)="selectValueEmit($event.value)" ></app-select>
+    </div>
+    <div class="">
+      <app-input-color [color]="colorComponente()" (colorSelect)="onChangeColorComponent($event)" titulo=""></app-input-color>
+      <!-- @switch (conponenteSignal()) {
+        @case (componentes[0]) {
+          <app-input-color [color]="colorPalette.barraSuperior" (colorSelect)="onChangeColorComponent($event)" titulo=""></app-input-color>
+        }
+        @case (componentes[1]) {
+          <app-input-color [color]="colorPalette.menuLateral" (colorSelect)="onChangeColorComponent($event)" titulo=""></app-input-color>
+        }
+        @case (componentes[2]) {
+          <app-input-color [color]="colorPalette.footer" (colorSelect)="onChangeColorComponent($event)" titulo=""></app-input-color>
+        }
+        @default {
+
+        }
+      } -->
+    
+     </div>
+  </div>
+  
+ <div class="flex justify-center mt-5">
+  <div class="overflow-x-auto">
+    <app-ver-colores [colores]="colorPalette.palettePrimary" (colorSelectEmit)="onChangeColorComponent($event)"  [colorSelect]="colorComponente()" titulo="Paleta de colores primaria"></app-ver-colores>
+    <app-ver-colores [colores]="colorPalette.paletteSecondary" (colorSelectEmit)="onChangeColorComponent($event)" [colorSelect]="colorComponente()" titulo="Paleta de colores secundaria"></app-ver-colores>
+  </div>
+ </div>
+ 
+</section> 
+
+
+<!-- w-[85%] mx-auto md:w-full -->
+<!-- <div class=" "> -->
+  <!-- <div class="flex flex-col md:flex-row md:gap-4 justify-center">
+    <app-input-color [color]="colorPalette.primary" (colorSelect)="onColorChangePrimaryEmit($event)" titulo="Elija color primario"></app-input-color>
+    <app-input-color [color]="colorPalette.secundary" (colorSelect)="onColorChangeSecondaryEmit($event)" titulo="Elija color secondario"></app-input-color>
+    <app-input-color [color]="colorPalette.fondo" (colorSelect)="onColorChangeAccentEmit($event)" titulo="Elija color de fondo"></app-input-color>
+     
+    @if(colorSecondario()){
+      <app-input-color [color]="colorBase.colorSecondary" (colorSelect)="onColorChangeSecondaryEmit($event)" titulo="Elija color secondario"></app-input-color>
+    }
+    @if(colorAccent()){
+      <app-input-color [color]="colorBase.colorAccent" (colorSelect)="onColorChangeAccentEmit($event)" titulo="Elija color accent"></app-input-color>
+    } 
+  </div> -->
+   
+  <!-- <div class="flex justify-center mb-4">
+    @if(colorSecondario()){
+      <button type="button" (click)="removeColor(tipoSecundario)" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2">
+        <svg class="h-5 w-5 me-2 -ms-1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+        </svg>
+        Quitar color secondario
+      </button>
+    }@else {
+      <button type="button" (click)="agregarColorSecundario()" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  w-5 me-2 -ms-1"  viewBox="0 -960 960 960"  fill="currentColor"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+        </svg>
+        Agregar color secundario
+      </button>
+    }
+    @if(colorAccent()){
+      <button type="button" (click)="removeColor(tipoAccent)" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2">
+        <svg class="h-5 w-5 me-2 -ms-1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+        </svg>
+        Quitar color accent
+      </button>
+    }@else {
+      <button type="button" (click)="agregarColorAccent()" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  w-5 me-2 -ms-1"  viewBox="0 -960 960 960"  fill="currentColor"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+        </svg>
+        Agregar color accent
+      </button>
+    }
+  </div>  -->
+  
+  
+  <!-- <app-ver-colores [colores]="colorPalette.palettePrimary" [colorSelect]="colorPalette.primary" titulo="Paleta color primario"></app-ver-colores>
+  <app-ver-colores [colores]="colorPalette.paletteSecondary" [colorSelect]="colorPalette.secundary" titulo="Paleta color secundario"></app-ver-colores> -->
+  <!-- <app-ver-colores [colores]="colorPalette.accent" titulo="Paleta color de fondo"></app-ver-colores> -->
+
+   <!-- <div class="h-28 flex justify-center ">
+    <div class=" ">
+      <div class="flex justify-center">
+        <p class="text-md  font-medium text-gray-900 dark:text-white">Cambiar color a la interfaz de usuario </p>
+      </div>
+      <div class="flex flex-col gap-2 justify-center items-center">
+        <div class="w-96">
+          <app-select [elementos]="componentes"></app-select>
+        </div>
+       <div class="">
+       
+        <app-input-color [color]="colorPalette.primary" (colorSelect)="onColorChangePrimaryEmit($event)" titulo=""></app-input-color>
+       </div>
+     
+      </div>
+      <div>
+         <app-ver-colores [colores]="colorPalette.palettePrimary" [colorSelect]="colorPalette.primary" titulo="Paleta basada en el color primario"></app-ver-colores>
+         <app-ver-colores [colores]="colorPalette.paletteSecondary" [colorSelect]="colorPalette.secundary" titulo="Paleta color secundario"></app-ver-colores>
+      </div>
+    </div>
+   </div> -->
+  
+  <!-- </div> -->
+
