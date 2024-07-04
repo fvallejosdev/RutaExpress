@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import chroma from "chroma-js";
 import { ColorScale } from "../../../shared/interfaces/interfaces";
+import { ClasificacionColor } from "../enums/enums";
 
 @Injectable({
   providedIn: 'root',
@@ -18,17 +19,17 @@ export class ColorGeneratorService {
     return keys.map((key, index) => ({ key, value: scale[index] }));
   }
 
-   clasificarColorMejorado(color:string):string {
+   clasificarColor(color:string):ClasificacionColor {
     const luminance = chroma(color).luminance();
     const contrasteConBlanco = chroma.contrast(color, 'white');
     const contrasteConNegro = chroma.contrast(color, 'black');
 
     if (contrasteConBlanco < 3) {
-        return "luminoso";
+        return ClasificacionColor.luminoso;
     } else if (contrasteConNegro < 3) {
-        return "oscuro";
+        return ClasificacionColor.oscuro;
     } else {
-        return "intermedio";
+        return ClasificacionColor.intermedio;
     }
 }
 }

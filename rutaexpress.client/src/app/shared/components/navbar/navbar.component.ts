@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { DarkModeService } from '../../../core/services/personalizacion-service/dark.mode';
+import { DarkModeService } from '../../../features/ajustes/servicios/dark.mode';
 
 @Component({
   selector: 'app-navbar',

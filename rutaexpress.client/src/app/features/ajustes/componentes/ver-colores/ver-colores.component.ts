@@ -13,7 +13,7 @@ import { ToastComponent } from '../../../../shared/components/toast/toast.compon
 export class VerColoresComponent {
  @Input({required: true}) colores!: ColorScale[];
  @Input({required: true}) titulo!:string;
- @Input({required: true}) colorSelect!: string;
+ @Input() colorSelect!: string;
  @Output() colorSelectEmit = new EventEmitter<string>();
  showToast = signal(false);
 protected colorCopy: string ="";

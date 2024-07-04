@@ -1,5 +1,53 @@
-<label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{etiqueta}}</label>
- <div class="relative w-full min-w-[200px] h-10">
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{etiqueta}}</label>
+<div class="relative">
+    <input type="text" (click)="showElementos()"  [(value)]="this._itemSelect.value" class="bg-transparent border border-gray-300 text-gray-900 text-sm font-medium rounded-lg focus:ring-secondary-500 focus:border-secondary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary-500 dark:focus:border-secondary-500" 
+    placeholder="{{placeholder}}"/>
+    <div
+    class="absolute inset-y-0 rtl:inset-r-0 right-1  flex items-center ps-3 pointer-events-none ">
+    @if(this._isShow()){
+        <div class="bg-white dark:bg-gray-900">
+            <svg class="w-7 h-7 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960" fill="currentColor">
+            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z" />
+        </svg>
+        </div>
+  
+    }@else {
+    <div class="bg-white dark:bg-gray-900">
+        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 -960 960 960" fill="currentColor">
+        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+    </svg>
+    </div>
+  
+    }
+</div>
+</div>
+
+<!-- <div class="relative h-10 md:inset-0 form-control w-64 border-2 dark:border-gray-600 border-gray-300  rounded-lg overflow-hidden max-w-md focus:ring-1 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+    style="box-shadow:rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 5%) 0px 4px 12px;">
+
+    <input type="text" (click)="showElementos()" readonly [(value)]="this._itemSelect.value"
+        placeholder="{{placeholder}}"
+        class="px-4 pl-6 w-full text-sm font-medium  h-full border-0 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-lg dark:text-gray-300 bg-transparent ">
+
+    <div
+        class="absolute inset-y-0 rtl:inset-r-0 right-3  flex items-center ps-3 pointer-events-none bg-white dark:bg-gray-900">
+        @if(this._isShow()){
+        <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960" fill="currentColor">
+            <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z" />
+        </svg>
+        }@else {
+        <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960" fill="currentColor">
+            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+        </svg>
+        }
+    </div>
+</div> -->
+<!-- 
+<div class="relative w-full min-w-[200px] h-10">
     <div class="absolute grid w-5 h-5 place-items-center text-blue-gray-500 top-2/4 right-3 -translate-y-2/4">
         @if(this._isShow()){
         <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -13,50 +61,47 @@
         </svg>
         }
 
-    </div>   
-        <input  (click)="showElementos()" readonly  [(value)]="this._itemSelect.value"
+    </div>
+    <input (click)="showElementos()" readonly [(value)]="this._itemSelect.value"
         class="peer cursor-pointer  w-full h-full bg-gray-50 dark:bg-gray-700 text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 text-sm text-gray-900 dark:text-white px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-blue-500"
         placeholder="{{placeholder}}" />
-    <!-- <label
-        class="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-gray-500 dark:text-gray-400 text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-blue-500 before:border-blue-gray-200 peer-focus:before:!border-blue-500 after:border-blue-gray-200 peer-focus:after:!border-blue-500">
-        {{etiqueta}}
-    </label> -->
-</div> 
-    
+   
+</div> -->
+
 
 @if(this._isShow()){
-    <div class="z-10 absolute mt-2 shadow w-64 shadow-md bg-white rounded-lg shadow dark:bg-gray-700">
-        <div class="p-3">
-            <label for="input-group-search" class="sr-only">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </div>
-                <input type="text" id="input-group-search" (input)="onInputFiltro($event)"
-                    class="block w-full p-2 ps-10 text-sm font-normal text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Buscar">
+<div class="z-10 absolute mt-2 shadow w-64 shadow-md bg-white rounded-lg shadow dark:bg-gray-700">
+    <div class="p-3">
+        <label for="input-group-search" class="sr-only">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
             </div>
+            <input type="text" id="input-group-search" (input)="onInputFiltro($event)"
+                class="block w-full p-2 ps-10 text-sm font-normal text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Buscar">
         </div>
-        <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm font-normal divide-y divide-gray-100  dark:divide-gray-600 text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdownSearchButton">
-            @for (item of elemetosFiltro; track item){
-                <li class="">
-                    @if(this._itemSelect  && item === _itemSelect ){
-                        <a (click)="seleccionar(item)"
-                            class="block cursor-pointer px-4 py-2 bg-gray-100 dark:bg-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{item.value}}</a>
-                        }@else {
-                        <a (click)="seleccionar(item)"
-                            class="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{item.value}}</a>
-                        }
-                   
-        
-                </li>              
-            }                       
-        </ul>
-       
     </div>
+    <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm font-normal divide-y divide-gray-100  dark:divide-gray-600 text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownSearchButton">
+        @for (item of elemetosFiltro; track item){
+        <li class="">
+            @if(this._itemSelect && item === _itemSelect ){
+            <a (click)="seleccionar(item)"
+                class="block cursor-pointer px-4 py-2 bg-gray-100 dark:bg-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{item.value}}</a>
+            }@else {
+            <a (click)="seleccionar(item)"
+                class="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{item.value}}</a>
+            }
+
+
+        </li>
+        }
+    </ul>
+
+</div>
 }

@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
-import { ColorCustome, ColorScale } from '../../../shared/interfaces/interfaces';
-import { TipoPaletaColor } from '../../../features/ajustes/enums/enums';
+import { ColorCustome, ColorScale, ColorCustomUi } from '../../../shared/interfaces/interfaces';
+import { TipoPaletaColor } from '../enums/enums';
 
 export interface Theme {
   palettePrimary: ColorScale[];
@@ -12,9 +12,9 @@ export interface Theme {
   fondo: string;
   primary: string;
   secundary: string;
-  barraSuperior: string;
-  menuLateral: string;
-  footer: string;
+  barraSuperior: ColorCustomUi;
+  menuLateral: ColorCustomUi;
+  footer: ColorCustomUi;
 }
 
 @Injectable({
@@ -80,9 +80,17 @@ export class ThemeService {
     document.documentElement.style.setProperty(`--color-fondo`, theme.fondo);
     document.documentElement.style.setProperty(`--color-primario`, theme.primary);
     document.documentElement.style.setProperty(`--color-secundario`, theme.secundary);
-    document.documentElement.style.setProperty(`--color-barrasup`, theme.barraSuperior);
-    document.documentElement.style.setProperty(`--color-drawer`, theme.menuLateral);
-    document.documentElement.style.setProperty(`--color-footer`, theme.footer);
+    //colors ui custom
+    document.documentElement.style.setProperty(`--color-barrasup`, theme.barraSuperior.fondo);
+    document.documentElement.style.setProperty(`--color-barrasup-text`, theme.barraSuperior.fuente);
+    document.documentElement.style.setProperty(`--color-barrasup-hover`, theme.barraSuperior.hover);
+    document.documentElement.style.setProperty(`--color-drawer`, theme.menuLateral.fondo);
+    document.documentElement.style.setProperty(`--color-drawer-text`, theme.menuLateral.fuente);
+    document.documentElement.style.setProperty(`--color-drawer-hover`, theme.menuLateral.hover);
+    document.documentElement.style.setProperty(`--color-footer`, theme.footer.fondo);
+    document.documentElement.style.setProperty(`--color-footer-text`, theme.footer.fuente);
+    document.documentElement.style.setProperty(`--color-footer-hover`, theme.footer.hover);
+
     theme.palettePrimary.forEach(item => {
       document.documentElement.style.setProperty(`--color-primary-${item.key}`, item.value);
     });
@@ -193,9 +201,9 @@ export class ThemeService {
       fondo: "#ffffff",
       primary: "#22c55e",
       secundary: "#22c55e",
-      barraSuperior: "",
-      menuLateral : "",
-      footer: ""
+      barraSuperior: {fondo: "",fuente:"#ffffff",hover:""},
+      menuLateral : {fondo: "",fuente:"#ffffff",hover:""},
+      footer: {fondo: "",fuente:"#ffffff",hover:""}
     };
   }
 

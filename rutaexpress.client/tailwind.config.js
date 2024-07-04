@@ -53,9 +53,16 @@ module.exports = {
         fondo: 'var(--color-fondo)',
         primario: 'var(--color-primario)',
         secundario: 'var(--color-secundario)',
-        menusup: 'var(--color-menusup)',
-        drawer: 'var(--color-menulateral)',
-        footer: 'var(--color-footer)'
+        //ui custom colors
+        barrasup: 'var(--color-barrasup)',
+        barrasuptext: 'var(--color-barrasup-text)',
+        barrasuphover: 'var(--color-barrasup-hover)',
+        drawer: 'var(--color-drawer)',
+        drawertext: 'var(--color-drawer-text)',
+        drawerhover: 'var(--color-drawer-hover)',
+        footer: 'var(--color-footer)',
+        footertext: 'var(--color-footer-text)',
+        footerhover: 'var(--color-footer-hover)',
         // accent: 'var(--color-accent)',
       }
       

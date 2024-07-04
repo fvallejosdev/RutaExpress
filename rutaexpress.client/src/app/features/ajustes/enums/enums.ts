@@ -3,3 +3,9 @@ export enum TipoPaletaColor{
     secondary,
     accent
   }
+
+export enum ClasificacionColor{
+  luminoso,
+  intermedio,
+  oscuro
+}

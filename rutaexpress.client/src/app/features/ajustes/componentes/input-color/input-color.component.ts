@@ -15,6 +15,7 @@ export class InputColorComponent {
 
   onColorChangePrimary(event: any): void {
     this.colorSelect.emit(event.target.value)
+    console.log("color input text change : "+event.target.value)
     //this.colorBase.colorPrimary = event.target.value;
   }
 }

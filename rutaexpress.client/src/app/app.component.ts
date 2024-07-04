@@ -2,8 +2,8 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { initFlowbite } from 'flowbite';
-import { ThemeService } from './core/services/personalizacion-service/theme.service';
-import { DarkModeService } from './core/services/personalizacion-service/dark.mode';
+import { ThemeService } from './features/ajustes/servicios/theme.service';
+import { DarkModeService } from './features/ajustes/servicios/dark.mode';
 import { NgClass } from '@angular/common';
 import { PaletaColoresComponent } from './features/ajustes/componentes/paleta-colores/paleta-colores.component';
 
